@@ -334,6 +334,7 @@ module Grit
       argv = []
       argv << Git.git_binary
       argv << "--git-dir=#{git_dir}" if base
+      argv << "--work-tree=#{self.work_tree}" if self.work_tree && cmd == :pull
       argv << cmd.to_s.tr('_', '-')
       argv.concat(options_to_argv(options))
       argv.concat(args)
